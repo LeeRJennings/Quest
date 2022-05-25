@@ -58,6 +58,8 @@ namespace Quest
 
             Adventurer theAdventurer = new Adventurer(adventurerName, myRobe, myHat);
 
+            Prize newPrize = new Prize("This is a prize.");
+
 
             // A list of challenges for the Adventurer to complete
             // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.
@@ -95,10 +97,11 @@ namespace Quest
             {
                 Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
             }
-
+    
             bool playAgain = true;
             while(playAgain)
             {
+                newPrize.ShowPrize(theAdventurer);
                 Console.Write("Would you like to play again? (Y/N) ");
                 string playAgainAnswer = Console.ReadLine().ToLower();
                 if (playAgainAnswer == "y")
