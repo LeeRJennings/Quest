@@ -35,6 +35,8 @@ namespace Quest
                 4, 20
             );
 
+            Challenge forsberg = new Challenge("How old is Peter Forsberg?", 48, 30);
+            Challenge nethercutt = new Challenge("How many AUDL MVP awards has Jonathan Nethercutt won?", 1, 77);
             // "Awesomeness" is like our Adventurer's current "score"
             // A higher Awesomeness is better
 
@@ -69,14 +71,32 @@ namespace Quest
                 theAnswer,
                 whatSecond,
                 guessRandom,
-                favoriteBeatle
+                favoriteBeatle,
+                forsberg,
+                nethercutt
             };
 
+            List<Challenge> gameChallenges = new List<Challenge>();
+
+            void getGameChallenges()
+            {
+                int counter = 0;
+                while (counter < 5)
+                {
+                    int randoNum = new Random().Next(1, 6);
+                    if (!gameChallenges.Contains(challenges[randoNum]))
+                    {
+                        gameChallenges.Add(challenges[randoNum]);
+                        counter++;
+                    }
+                }
+            }
             // Loop through all the challenges and subject the Adventurer to them
+            getGameChallenges();
             void startChallenges()
             {
                 Console.WriteLine(theAdventurer.GetDescription());
-                foreach (Challenge challenge in challenges)
+                foreach (Challenge challenge in gameChallenges)
                 {
                     challenge.RunChallenge(theAdventurer);
                 }
