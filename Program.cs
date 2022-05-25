@@ -50,7 +50,13 @@ namespace Quest
                 Colors = new List<string>{"red", "blue", "yellow"},
                 Length = 27 
             };
-            Adventurer theAdventurer = new Adventurer(adventurerName, myRobe);
+
+            Hat myHat = new Hat()
+            {
+                ShininessLevel = 4
+            };
+
+            Adventurer theAdventurer = new Adventurer(adventurerName, myRobe, myHat);
 
 
             // A list of challenges for the Adventurer to complete
