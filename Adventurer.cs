@@ -13,23 +13,26 @@ namespace Quest
         public int Awesomeness { get; set; }
 
         private Robe ColorfulRobe {get; set;}
+        public Hat Hat {get; set;}
 
         // A constructor to make a new Adventurer object with a given name
-        public Adventurer(string name, Robe colorfulRobe)
+        public Adventurer(string name, Robe colorfulRobe, Hat hat)
         {
             Name = name;
             Awesomeness = 50;
             ColorfulRobe = colorfulRobe;
+            Hat = hat;
         }
 
         public string GetDescription()
         {
-            string robeString = $"{Name} your robes colors are: ";
+            string robeString = $"{Name} your robes colors are ";
             foreach (string robeColor in ColorfulRobe.Colors)
             {
                 robeString += $"{robeColor}, ";
             }
-            robeString += $"and your robes length is {ColorfulRobe.Length}";
+            robeString += $"and your robes length is {ColorfulRobe.Length} ";
+            robeString += $"and your hat is {Hat.ShininessDescription()}";
             return robeString;
         }
 
